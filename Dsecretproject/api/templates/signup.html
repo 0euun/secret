@@ -24,7 +24,10 @@
         {{ form.password2 }}
 
         <button type="submit">Sign up</button>
-        <p>Already have an account? <strong>Log in</strong></p>
+        <p>
+            Already have an account? 
+            <a href="{% url 'root_login' %}"><strong>Log in</strong></a>
+        </p>
     </form>
 </body>
 </html>

@@ -5,9 +5,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 2rem;
+    align-items: flex-start; 
+    height: 100vh;
+    padding-top: 80px;
 }
 
 /* 폼 레이아웃 */
@@ -66,7 +66,7 @@ button[type="submit"]:hover {
     background-color: #333;
 }
 
-/* 로그인 링크 */
+/* 링크 */
 p {
     text-align: center;
     font-size: 0.9rem;
@@ -74,7 +74,7 @@ p {
     color: #444;
 }
 
-/* 박스 튀어나오는 문제 방지 */
+/* 입력칸 튀어나오는 문제 방지 */
 * {
     box-sizing: border-box;
 }
