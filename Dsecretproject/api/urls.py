@@ -3,4 +3,6 @@ from .views import *
 
 app_name = 'api'
 
-urlpatterns = []
+urlpatterns = [
+    path('signup/', signup_view, name='signup'),
+]
