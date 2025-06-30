@@ -1,3 +1,12 @@
+.top-right-logo {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #111;
+}
+
 /* 전체 페이지 */
 body {
     font-family: 'Helvetica', sans-serif;
