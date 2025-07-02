@@ -30,8 +30,8 @@ class RegisterForm(UserCreationForm):
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(
-        label = "Email",
-        widget = forms.TextInput(attrs={'placeholder': 'Enter your email'})
+        label = "Username",
+        widget = forms.TextInput(attrs={'placeholder': 'Enter your username'})
     )
     password = forms.CharField(
         label="Password",

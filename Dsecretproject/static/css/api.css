@@ -88,3 +88,16 @@ p {
 * {
     box-sizing: border-box;
 }
+
+.errorlist {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.8rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.errorlist li {
+    margin-left: 0;
+}

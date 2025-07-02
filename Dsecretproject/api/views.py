@@ -9,7 +9,7 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('/')
+            return redirect('root_login')
     else:
         form = RegisterForm()
     return render(request, 'signup.html', {'form': form})
@@ -23,7 +23,7 @@ def login_view(request):
             user=authenticate(request=request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('/')
+                return redirect('artists:artist_main')
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
