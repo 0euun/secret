@@ -1,5 +1,14 @@
+.top-right-logo {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #111;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Helvetica', sans-serif;
     background-color: #ffffff;
     padding: 40px;
     display: flex;
