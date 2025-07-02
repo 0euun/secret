@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>아티스트 프로필 수정</title>
+    <link rel="stylesheet" href="{% static 'css/artist_edit_style.css' %}">
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">저장</button>
-    </form>
+    <div class="edit-container">
+        <h2>EDIT PROFILE</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">SAVE</button>
+        </form>
+    </div>
 </body>
 </html>
