@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>프로필</title>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- 이미지 추후 추가 -->
+        <h2>{{ artist.name }}</h2>
+        <div class="profile-info">
+            <p>Name: {{ artist.name }}</p>
+            <p>Team: {{ artist.team }}</p>
+            <p>Birthday: {{ artist.birthday }}</p>
+            <p>Position: {{ artist.position }}</p>
+        </div>
+    </div>
+</body>
+</html>
