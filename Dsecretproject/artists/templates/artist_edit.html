@@ -14,7 +14,24 @@
         <h2>EDIT PROFILE</h2>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
+            
+            <label for="id_profile">Profile Image</label>
+            {{ form.profile }}
+
+            <br><br>
+
+            <label for="id_name">Name</label>
+            {{ form.name }}
+
+            <label for="id_team">Team</label>
+            {{ form.team }}
+
+            <label for="id_birthday">Birthday</label>
+            {{ form.birthday }}
+
+            <label for="id_position">Position</label>
+            {{ form.position }}
+
             <button type="submit">SAVE</button>
         </form>
     </div>

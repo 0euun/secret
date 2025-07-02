@@ -1,3 +1,4 @@
+/* 로고 위치 */
 .top-right-logo {
     position: absolute;
     top: 20px;
@@ -7,6 +8,7 @@
     color: #111;
 }
 
+/* 전체 배경 및 중앙 정렬 */
 body {
     font-family: 'Helvetica', sans-serif;
     background-color: #ffffff;
@@ -15,49 +17,65 @@ body {
     justify-content: center;
 }
 
+/* 카드 느낌 제거 */
 .edit-container {
     width: 500px;
 }
 
+/* 제목 */
 .edit-container h2 {
     text-align: center;
     font-size: 24px;
     margin-bottom: 30px;
+    font-weight: bold;
 }
 
+/* 폼 구조 */
 form {
     display: flex;
     flex-direction: column;
 }
 
-form p {
-    margin-bottom: 15px;
-}
-
-label {
-    font-weight: bold;
+/* 각 필드 간 간격 */
+form label {
+    margin-top: 20px;
     margin-bottom: 5px;
-    display: block;
+    font-weight: bold;
 }
 
 input[type="text"],
 input[type="date"],
-select {
+input[type="file"],
+select,
+textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
-button {
-    margin-top: 20px;
+input[type="file"] {
+    margin-bottom: 0;
     padding: 10px;
-    background-color: #222;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* 버튼 스타일 */
+button {
+    margin-top: 30px;
+    padding: 12px;
+    background-color: #111;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.2s;
 }
 
 button:hover {
