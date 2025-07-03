@@ -87,7 +87,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS = [ #비밀번호 작성 간소화를 위해 모두 주석 처리 -> 추후 수정 예정
     #{
     #    'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     #},
