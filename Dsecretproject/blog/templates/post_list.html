@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>게시글 목록</title>
+</head>
+<body>
+    <h1>게시글 목록</h1>
+    <a href="{% url 'blog:post_create_form' %}">➕ 새 글 작성</a>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'blog:post_detail_page' post.pk %}">{{ post.title }}</a>
+            </li>
+        {% empty %}
+            <li>게시글이 없습니다.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
