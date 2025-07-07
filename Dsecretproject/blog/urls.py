@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.urls import path
 from .views import *
 from .templates import *
@@ -6,7 +7,7 @@ app_name = 'blog'
 
 urlpatterns = [
     # REST
-    path('', PostList.as_view(), name='post_list_api'),
+    path('list/', PostList.as_view(), name='post_list_api'),
     path('<int:pk>/', PostDetail.as_view(), name='post_detail_api'),
 
     # HTML웹
@@ -16,3 +17,13 @@ urlpatterns = [
     path('page/<int:pk>/edit/', post_edit_form, name='post_edit_form'),
     path('page/<int:pk>/delete/', post_delete, name='post_delete'), 
 ]
+=======
+# from django.urls import path
+# from .views import *
+
+# app_name = 'blog'
+
+# urlpatterns = [
+    
+# ]
+>>>>>>> upstream/main
