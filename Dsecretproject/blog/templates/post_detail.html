@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+
+    <p><strong>작성일:</strong> {{ post.date|date:"Y년 m월 d일" }}</p>
+
+    <p><strong>본문:</strong></p>
+    <div>{{ post.body|linebreaksbr }}</div>
+
+    <p><strong>사용 언어:</strong> {{ post.get_language_display }}</p>
+
+    <hr>
+
+    <!-- 목록으로 돌아가기 -->
+    <a href="{% url 'blog:post_list_page' %}">← 목록으로 돌아가기</a>
+
+    <!-- 글 수정/삭제 -->
+    <div style="margin-top: 20px;">
+        <a href="{% url 'blog:post_edit_form' post.pk %}">
+            <button>수정하기</button>
+        </a>
+        <a href="{% url 'blog:post_delete' post.pk %}">
+            <button>삭제하기</button>
+        </a>
+        
+    </div>
+</body>
+</html>
