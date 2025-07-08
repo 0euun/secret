@@ -1,11 +1,4 @@
-.top-right-logo {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #111;
-}
+/* ================== 공통 ================== */
 
 body {
     font-family: 'Helvetica', sans-serif;
@@ -15,10 +8,46 @@ body {
     color: #333;
 }
 
+/* ================== 헤더 ================== */
+
+.top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+}
+
+.top-right-logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #111;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
+    color: #111;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: #555;
+}
+
+/* ================== 프로필 ================== */
+
 .profile-container {
     max-width: 800px;
     margin: 100px auto;
     text-align: center;
+    padding: 0 2rem;
 }
 
 .profile-container h2 {

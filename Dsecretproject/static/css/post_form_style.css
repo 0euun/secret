@@ -1,15 +1,13 @@
 /* ================== 공통 ================== */
-
 body {
     font-family: 'Helvetica', sans-serif;
-    background-color: #ffffff;
+    background-color: #fff;
+    color: #111;
     margin: 0;
     padding: 0;
-    color: #333;
 }
 
 /* ================== 헤더 ================== */
-
 .top-header {
     display: flex;
     align-items: center;
@@ -41,21 +39,27 @@ body {
     color: #555;
 }
 
-/* ================== 수정 폼 ================== */
-
-.edit-container {
-    width: 500px;
-    margin: 60px auto;
-    padding: 0 2rem;
+/* ================== 중앙 정렬된 작성 폼 ================== */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    padding: 0 1rem;
 }
 
-.edit-container h2 {
+.post-form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.form-title {
+    font-size: 1.6rem;
     text-align: center;
-    font-size: 24px;
-    margin-bottom: 30px;
     font-weight: bold;
+    margin-bottom: 2rem;
 }
 
+/* 폼 스타일 */
 form {
     display: flex;
     flex-direction: column;
@@ -68,10 +72,9 @@ form label {
 }
 
 input[type="text"],
-input[type="date"],
 input[type="file"],
-select,
-textarea {
+textarea,
+select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -80,10 +83,12 @@ textarea {
     box-sizing: border-box;
 }
 
-input[type="file"] {
-    margin-bottom: 0;
+textarea {
+    resize: vertical;
+    min-height: 120px;
 }
 
+/* 제출 버튼 */
 button {
     margin-top: 30px;
     padding: 12px;
@@ -98,4 +103,18 @@ button {
 
 button:hover {
     background-color: #444;
+}
+
+/* 목록으로 돌아가기 링크 */
+.back-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
 }

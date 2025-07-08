@@ -1,15 +1,20 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>아티스트 프로필</title>
     <link rel="stylesheet" href="{% static 'css/artist_main_style.css' %}">
 </head>
 <body>
-    <header class="top-right-logo">
-        <span>Secret</span>
+    <header class="top-header">
+        <div class="top-right-logo">Secret</div>
+        <nav class="main-nav">
+            <a href="{% url 'artists:artist_main' %}">Main</a>
+            <a href="{% url 'blog:post_list_page' %}">Letter</a>
+        </nav>
     </header>
+
     <div class="profile-container">
         {% if artist.profile %}
             <img src="{{ artist.profile.url }}" alt="" class="artist-profile-image">
@@ -20,13 +25,9 @@
             <p><strong>Team:</strong> {{ artist.team }}</p>
             <p><strong>Birthday:</strong> {{ artist.birthday }}</p>
             <p><strong>Position:</strong> {{ artist.position }}</p>
+
             <a href="{% url 'artists:artist_edit' %}">
                 <button>EDIT</button>
-            </a>
-
-            <!-- 게시글 페이지로 이동 -->
-            <a href="{% url 'blog:post_list_page' %}">
-                <button style="margin-top: 10px;">아티스트 응원하기</button>
             </a>
         </div>
     </div>

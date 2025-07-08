@@ -1,15 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
+    <meta charset="UTF-8">
     <title>글 작성</title>
+    <link rel="stylesheet" href="{% static 'css/post_form_style.css' %}">
 </head>
 <body>
-    <h1>글 작성</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">작성하기</button>
-    </form>
-    <a href="{% url 'blog:post_list_page' %}">← 목록으로</a>
+    <!-- 상단 네비게이션 -->
+    <header class="top-header">
+        <div class="top-right-logo">Secret</div>
+        <nav class="main-nav">
+            <a href="{% url 'artists:artist_main' %}">Main</a>
+            <a href="{% url 'blog:post_list_page' %}">Letter</a>
+        </nav>
+    </header>
+
+    <!-- 작성 폼만 중앙 정렬 -->
+    <div class="form-wrapper">
+        <section class="post-form">
+            <h2 class="form-title">CREATE POST</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">작성하기</button>
+            </form>
+            <a href="{% url 'blog:post_list_page' %}" class="back-link">← 목록으로</a>
+        </section>
+    </div>
 </body>
 </html>

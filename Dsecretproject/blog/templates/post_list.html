@@ -1,19 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>게시글 목록</title>
+    <meta charset="UTF-8">
+    <title>아티스트 응원글</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/post_list_style.css' %}">
 </head>
 <body>
-    <h1>게시글 목록</h1>
-    <a href="{% url 'blog:post_create_form' %}">➕ 새 글 작성</a>
-    <ul>
-        {% for post in posts %}
-            <li>
-                <a href="{% url 'blog:post_detail_page' post.pk %}">{{ post.title }}</a>
-            </li>
-        {% empty %}
-            <li>게시글이 없습니다.</li>
-        {% endfor %}
-    </ul>
+    <!-- 상단 네비게이션 -->
+    <header class="top-header">
+        <div class="top-right-logo">Secret</div>
+        <nav class="main-nav">
+            <a href="{% url 'artists:artist_main' %}">Main</a>
+            <a href="{% url 'blog:post_list_page' %}">Letter</a>
+        </nav>
+    </header>
+
+    <!-- 📌 여기에 main-container 추가 -->
+    <div class="main-container">
+
+        <!-- 게시글 리스트 -->
+        <section class="post-list">
+            <h1 class="page-title">Letter</h1>
+
+            {% for post in posts %}
+                <div class="post-card">
+                    <div class="post-content">
+
+                        <div class="post-meta">
+                            <span class="post-date">{{ post.date|date:"Y.m.d" }}</span>
+                        </div>
+
+                        <h2 class="post-title">
+                            <a href="{% url 'blog:post_detail_page' post.pk %}">
+                                {{ post.title }}
+                            </a>
+                        </h2>
+
+                        <p class="summary">
+                            {{ post.body|truncatechars:80 }}
+                        </p>
+
+                    </div>
+                </div>
+            {% empty %}
+                <p>게시글이 없습니다.</p>
+            {% endfor %}
+
+            <!-- 새 글 작성 버튼 -->
+            <div class="bottom-button-container">
+                <a href="{% url 'blog:post_create_form' %}" class="bottom-create-button">+</a>
+            </div>
+        </section>
+
+        <!-- 아티스트 정보 사이드바 -->
+        <aside class="sidebar">
+            <div class="artist-info">
+                <img src="{% static 'blog/퍼글러.jpg' %}" alt="아티스트 프로필" class="artist-avatar">
+                <h3>Hong Gildong</h3>
+                <ul>
+                    <li><strong>Team:</strong> EWHA WOMANS UNIVERSITY</li>
+                    <li><strong>Birthday:</strong> May 31, 1886</li>
+                    <li><strong>Position:</strong> SEOUL</li>
+                </ul>
+            </div>
+        </aside>
+
+    </div> <!-- ✅ main-container 닫는 태그 -->
+
 </body>
 </html>
