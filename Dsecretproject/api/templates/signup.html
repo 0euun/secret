@@ -1,41 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>회원가입</title>
-    <link rel="stylesheet" href="{% static 'css/api.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/api.css' %}" />
+  </head>
+  <body>
     <header class="top-right-logo">
-        <span>Secret</span>
+      <span>Secret</span>
     </header>
     <form method="post">
-        <h2>Create your account</h2>
-        {% csrf_token %}
-        {{ form.non_field_errors }}
+      <h2>Create your account</h2>
+      {% csrf_token %} {{ form.non_field_errors }}
 
-        <label for="{{ form.username.id_for_label }}">Username</label>
-        {{ form.username }}
-        {{ form.username.errors }}
+      <label for="{{ form.username.id_for_label }}">Username</label>
+      {{ form.username }} {{ form.username.errors }}
 
-        <label for="{{ form.email.id_for_label }}">Email</label>
-        {{ form.email }}
-        {{ form.email.errors }}
+      <label for="{{ form.nickname.id_for_label }}">Nickname</label>
+      {{ form.nickname }} {{ form.nickname.errors }}
 
-        <label for="{{ form.password1.id_for_label }}">Password</label>
-        {{ form.password1 }}
-        {{ form.password1.errors }}
+      <label for="{{ form.email.id_for_label }}">Email</label>
+      {{ form.email }} {{ form.email.errors }}
 
-        <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
-        {{ form.password2 }}
-        {{ form.password2.errors }}
+      <label for="{{ form.password1.id_for_label }}">Password</label>
+      {{ form.password1 }} {{ form.password1.errors }}
 
-        <button type="submit">Sign up</button>
-        <p>
-            Already have an account? 
-            <a href="{% url 'root_login' %}"><strong>Log in</strong></a>
-        </p>
+      <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+      {{ form.password2 }} {{ form.password2.errors }}
+
+      <button type="submit">Sign up</button>
+      <p>
+        Already have an account?
+        <a href="{% url 'root_login' %}"><strong>Log in</strong></a>
+      </p>
     </form>
-</body>
+  </body>
 </html>

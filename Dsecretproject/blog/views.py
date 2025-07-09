@@ -6,6 +6,7 @@ from django.http import Http404
 from .models import *
 from .serializers import *
 from .forms import *
+from artists.models import Artist
 
 # Create your views here.
 class PostList(views.APIView):
@@ -54,13 +55,16 @@ class PostDetail(views.APIView):
 
 def post_list_page(request):
     posts = Post.objects.all()
-    return render(request, 'post_list.html', {'posts': posts})
+    artist = Artist.objects.first() 
+    return render(request, 'post_list.html', {'posts': posts, 'artist': artist})
 
 def post_create_form(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.author = request.user  # 작성자 자동 할당
+            post.save()
             return redirect('blog:post_list_page')
     else:
         form = PostForm()
@@ -68,7 +72,8 @@ def post_create_form(request):
 
 def post_detail_page(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'post_detail.html', {'post': post})
+    artist = Artist.objects.first()
+    return render(request, 'post_detail.html', {'post': post, 'artist': artist})
 
 def post_edit_form(request, pk):
     post = get_object_or_404(Post, pk=pk)

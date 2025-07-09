@@ -1,0 +1,120 @@
+/* ================== 공통 ================== */
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #fff;
+    color: #111;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================== 헤더 ================== */
+.top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+}
+
+.top-right-logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #111;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
+    color: #111;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: #555;
+}
+
+/* ================== 중앙 정렬된 작성 폼 ================== */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    padding: 0 1rem;
+}
+
+.post-form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.form-title {
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/* 폼 스타일 */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* 제출 버튼 */
+button {
+    margin-top: 30px;
+    padding: 12px;
+    background-color: #111;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+/* 목록으로 돌아가기 링크 */
+.back-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
