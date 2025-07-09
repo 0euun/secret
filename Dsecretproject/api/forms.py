@@ -3,6 +3,12 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import User
 
 class RegisterForm(UserCreationForm):
+    nickname = forms.CharField(
+        label="Nickname",
+        max_length=30,
+        required=False,
+        widget=forms.TextInput(attrs={'placeholder': 'Enter your nickname'})
+    )
     password1 = forms.CharField(
         label="Password",
         widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'})
@@ -13,12 +19,13 @@ class RegisterForm(UserCreationForm):
     )
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'nickname', 'email', 'password1', 'password2']
         widgets = {
             'username': forms.TextInput(attrs={'placeholder': 'Enter your username'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Enter your email'}),
         }
         labels = {
+            'nickname': 'Nickname',
             'password2': 'Confirm Password',
         }
         help_texts = {

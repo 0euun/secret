@@ -1,49 +1,76 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>{{ post.title }}</title>
-    <link rel="stylesheet" href="{% static 'css/post_detail_style.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/post_detail_style.css' %}" />
+  </head>
+  <body>
     <!-- 상단 네비게이션 -->
     <header class="top-header">
-        <div class="top-right-logo">Secret</div>
-        <nav class="main-nav">
-            <a href="{% url 'artists:artist_main' %}">Main</a>
-            <a href="{% url 'blog:post_list_page' %}">Letter</a>
-        </nav>
+      <div class="top-right-logo">Secret</div>
+      <nav class="main-nav">
+        <a href="{% url 'artists:artist_main' %}">Main</a>
+        <a href="{% url 'blog:post_list_page' %}">Letter</a>
+      </nav>
     </header>
 
     <div class="main-container">
-        <!-- 게시글 본문 -->
-        <section class="post-list">
-            <h2 class="page-title">{{ post.title }}</h2>
-            <p class="post-meta post-date"><strong>작성일:</strong> {{ post.date|date:"Y년 m월 d일" }}</p>
-            <div class="post-body">{{ post.body|linebreaksbr }}</div>
+      <!-- 게시글 본문 -->
+      <!-- prettier-ignore -->
+      <p class="post-info">
+  작성자: {% if post.author %}{{ post.author.nickname|default:post.author.username }}{% else %}익명{% endif %}
+</p>
 
-            <hr class="divider">
+      <section class="post-list">
+        <h2 class="page-title">{{ post.title }}</h2>
+        <p class="post-meta post-date">
+          <strong>작성일:</strong> {{ post.date|date:"Y년 m월 d일" }}
+        </p>
+        <div class="post-body">{{ post.body|linebreaksbr }}</div>
 
-            <div class="button-group">
-                <a href="{% url 'blog:post_list_page' %}" class="link-button">← 목록으로</a>
-                <a href="{% url 'blog:post_edit_form' post.pk %}"><button>수정하기</button></a>
-                <a href="{% url 'blog:post_delete' post.pk %}"><button class="delete">삭제하기</button></a>
-            </div>
-        </section>
+        <hr class="divider" />
 
-        <!-- 아티스트 정보 사이드바 -->
-        <aside class="sidebar">
-            <div class="artist-info">
-                <img src="{% static 'blog/퍼글러.jpg' %}" alt="아티스트 프로필" class="artist-avatar">
-                <h3>Hong Gildong</h3>
-                <ul>
-                    <li><strong>Team:</strong> EWHA WOMANS UNIVERSITY</li>
-                    <li><strong>Birthday:</strong> May 31, 1886</li>
-                    <li><strong>Position:</strong> SEOUL</li>
-                </ul>
-            </div>
-        </aside>
+        <div class="button-group">
+          <a href="{% url 'blog:post_list_page' %}" class="link-button"
+            >← 목록으로</a
+          >
+          <a href="{% url 'blog:post_edit_form' post.pk %}"
+            ><button>수정하기</button></a
+          >
+          <a href="{% url 'blog:post_delete' post.pk %}"
+            ><button class="delete">삭제하기</button></a
+          >
+        </div>
+      </section>
+
+      <!-- 아티스트 정보 사이드바 -->
+      <aside class="sidebar">
+        <div class="artist-info">
+          {% if artist.profile %}
+          <img
+            src="{{ artist.profile.url }}"
+            alt="아티스트 프로필"
+            class="artist-avatar"
+          />
+          {% else %}
+          <img
+            src="{% static 'blog/퍼글러.jpg' %}"
+            alt="아티스트 프로필"
+            class="artist-avatar"
+          />
+          {% endif %}
+          <h3>{{ artist.name }}</h3>
+          <ul>
+            <li><strong>Team:</strong> {{ artist.team }}</li>
+            <li>
+              <strong>Birthday:</strong> {{ artist.birthday|date:"F d, Y" }}
+            </li>
+            <li><strong>Position:</strong> {{ artist.position }}</li>
+          </ul>
+        </div>
+      </aside>
     </div>
-</body>
+  </body>
 </html>

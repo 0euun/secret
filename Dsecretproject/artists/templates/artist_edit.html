@@ -1,42 +1,51 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>아티스트 프로필 수정</title>
-    <link rel="stylesheet" href="{% static 'css/artist_edit_style.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/artist_edit_style.css' %}" />
+  </head>
+  <body>
     <header class="top-header">
-        <div class="top-right-logo">Secret</div>
-        <nav class="main-nav">
-            <a href="{% url 'artists:artist_main' %}">Main</a>
-            <a href="{% url 'blog:post_list_page' %}">Letter</a>
-        </nav>
+      <div class="top-right-logo">Secret</div>
+      <nav class="main-nav">
+        <a href="{% url 'artists:artist_main' %}">Main</a>
+        <a href="{% url 'blog:post_list_page' %}">Letter</a>
+      </nav>
     </header>
 
     <div class="edit-container">
-        <h2>EDIT PROFILE</h2>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+      <h2>EDIT PROFILE</h2>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
 
-            <label for="id_profile">Profile Image</label>
-            {{ form.profile }}
+        <label for="id_profile">Profile Image</label>
+        {{ form.profile }}
 
-            <label for="id_name">Name</label>
-            {{ form.name }}
+        <label for="id_name">Name</label>
+        {{ form.name }}
 
-            <label for="id_team">Team</label>
-            {{ form.team }}
+        <label for="id_team">Team</label>
+        {{ form.team }}
 
-            <label for="id_birthday">Birthday</label>
-            {{ form.birthday }}
+        <label for="id_birthday">Birthday</label>
+        {{ form.birthday }}
 
-            <label for="id_position">Position</label>
-            {{ form.position }}
+        <label for="id_position">Position</label>
+        {{ form.position }}
 
-            <button type="submit">SAVE</button>
-        </form>
+        <button type="submit">SAVE</button>
+      </form>
+      {% if form.errors %}
+      <ul class="errorlist">
+        {% for field in form %} {% for error in field.errors %}
+        <li>{{ field.label }}: {{ error }}</li>
+        {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </div>
-</body>
+  </body>
 </html>
